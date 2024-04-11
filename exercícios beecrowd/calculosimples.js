@@ -1,4 +1,3 @@
-
 const readline = require('readline')
 
 const rl = readline.createInterface({
@@ -6,38 +5,42 @@ const rl = readline.createInterface({
     output: process.stdout
 })
 
-let n = [ , , ]
-let n2 = [ , , ]
+let n = [, , ]
+let n2 = [, , ]
 
 rl.question('', (valor) => {
     n[0] = parseInt(valor)
     rl.question('', (valor) => {
         n[1] = parseInt(valor)
         rl.question('', (valor) => {
-            n[2] = parseInt(valor)
+            n[2] = parseFloat(valor).toFixed(2)
+            rl.question('', (valor) => {
+                n2[0] = parseInt(valor)
+                rl.question('', (valor) => {
+                    n2[1] = parseInt(valor)
+                    rl.question('', (valor) => {
+                        n2[2] = parseFloat(valor).toFixed(2)
+                        rl.close()
+                        // console.log('Valores de n:')
+                        // for(let c = 0; c < n.length; c++) {
+                        //     console.log(`Matriz posição ${c}, com valor ${n[c]} para essa posição.`)
+                        // }
+                        // console.log('Valores de n2:')
+                        // for(let c = 0; c < n2.length; c++) {
+                        //     console.log(`Matriz posição ${c}, com valor ${n2[c]} para essa posição.`)
+                        // }
+                        let apagar = n[1] * n[2]
+                        let apagar2 = n2[1] * n2[2]
 
-            for(let con = 0; con < n.length; con++) {
-                console.log(`Matriz posição ${con} com valor ${n[con]}`)
-            }
-            
+                        let apagartotal = apagar + apagar2
+
+                        apagartotal = parseFloat(apagartotal).toFixed(2)
+
+                        console.log(`VALOR A PAGAR: R$ ${apagartotal}`)
+
+                    })
+                })
+            })
         })
-
-    })
-})
-
-rl.question('', (valor) => {
-    n2[0] = parseInt(valor)
-    rl.question('', (valor) => {
-        n2[1] = parseInt(valor)
-        rl.question('', (valor) => {
-            n2[2] = parseInt(valor)
-
-            for(let con2 = 0; con2 < n.length; con2++) {
-                console.log(`Matriz posição ${con2} com valor ${n[con2]}`)
-            }
-            
-            rl.close()
-        })
-
     })
 })
